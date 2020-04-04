@@ -1,0 +1,1 @@
+This is a simple note app I'm writing just for fun and practice purposes.
