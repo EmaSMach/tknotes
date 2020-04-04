@@ -16,7 +16,7 @@ class NotaView(Frame):
 
     def make_buttons(self):
         self.btn_frame = Frame(self)
-        self.show_btn = ttk.Button(self.btn_frame, text='Actualizar', command=self.on_update_btn)
+        self.show_btn = ttk.Button(self.btn_frame, text='Actualizar lista', command=self.on_update_btn)
         self.create_btn = ttk.Button(self.btn_frame, text='Crear nota', command=self.on_create_note_btn)
         self.delete_btn = ttk.Button(self.btn_frame, text='Borrar', command=self.on_delete_btn)
         self.show_btn.grid(row=0, column=0)
