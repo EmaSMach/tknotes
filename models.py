@@ -1,9 +1,8 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
-from db import Session, Base
+from sqlalchemy import Column, Integer, String
+from db import Base, session
 from pubsub import pub
 
 
-session = Session()
 class Nota(Base):
     __tablename__ = 'notas'
     id = Column(Integer(), primary_key=True, autoincrement=True)
