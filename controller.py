@@ -1,5 +1,5 @@
 from views import NotaView
-from tkinter import *
+from tkinter import Tk
 from models import Nota, session
 from forms import NotaForm
 from pubsub import pub

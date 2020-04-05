@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Button, END, Frame, Tk, Toplevel, Text
 from tkinter import ttk
 # from typing import Any
 

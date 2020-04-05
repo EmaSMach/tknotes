@@ -1,4 +1,4 @@
-from tkinter import *
+from tkinter import Tk, Frame, YES, BOTH, END
 from tkinter import ttk
 from pubsub import pub
 from forms import NotaForm
@@ -7,6 +7,10 @@ from forms import NotaForm
 class NotaView(Frame):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        # configuring row and columns of the container
+        self.columnconfigure(0, weight=1)
+        self.rowconfigure(0, weight=1)
+        self.pack(expand=YES, fill=BOTH)
         self.make_widgets()
 
     def make_widgets(self):
@@ -27,15 +31,15 @@ class NotaView(Frame):
         
     def on_update_btn(self):
         selected = self.table.selection()
-        if selected:
+        if selected and len(selected) == 1:
             selected_data = self.table.item(selected)['values']
             new_data = {'id': selected_data[0], 'title': selected_data[1], 'body': selected_data[2]}
             pub.sendMessage('update_btn_clicked', data=new_data)
 
     def on_delete_btn(self):
         selected = self.table.selection()
-        if selected:
-            selected_id = self.table.item(selected)['values'][0]
+        if selected and len(selected) == 1:
+            selected_id = self.table.item(selected[0])['values'][0]
             pub.sendMessage('delete_btn_clicked', _id=selected_id)
 
     def on_show_btn(self):
@@ -63,13 +67,12 @@ class NotaView(Frame):
         self.table.heading(column=columns[0], text='Id')
         self.table.heading(column=columns[1], text='Título')
         self.table.heading(column=columns[2], text='Cuerpo')
-        self.table.grid(row=0, column=0)
-
+        self.table.grid(row=0, column=0, sticky='nsew')
+        
     def on_save_button(self):
         pass
 
 
-    
 def main():
     root = Tk()
     w = NotaView(root)
