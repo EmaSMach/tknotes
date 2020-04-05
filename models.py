@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from db import Base, session
 from pubsub import pub
+from db import Base, session
 
 
 class Nota(Base):

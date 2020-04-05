@@ -1,8 +1,8 @@
-from views import NotaView
 from tkinter import Tk
+from pubsub import pub
+from views import NotaView
 from models import Nota, session
 from forms import NotaForm
-from pubsub import pub
 
 
 class Controller:
